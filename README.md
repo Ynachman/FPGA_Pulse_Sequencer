@@ -12,6 +12,8 @@ The system is built on a FSM architecture that coordinates multiple independent 
 * **Modules:**
     * `sequencer_fsm.sv`: The central controller.
     * `clk_div.sv`: A parametric clock divider for precision timing.
+    * `top_pulse_sequencer.sv`: Instantiates and wires the FSM controller to the three required timer instances.
+    * `sequencer_tb.sv`: Testbench file use to generate the clock and verify the pulse sequence waveforms.
 
 ## Simulation & Testing
 The core logic was verified using simulation (`sequencer_tb.sv`). The waveform confirms the FSM transitions are correct:

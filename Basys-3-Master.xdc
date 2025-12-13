@@ -28,8 +28,8 @@ create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports clk
 
 
 ## LEDs
-#set_property -dict { PACKAGE_PIN U16   IOSTANDARD LVCMOS33 } [get_ports pulse_out_A]
-#set_property -dict { PACKAGE_PIN E19   IOSTANDARD LVCMOS33 } [get_ports pulse_out_B]
+set_property -dict { PACKAGE_PIN U16   IOSTANDARD LVCMOS33 } [get_ports pulse_out_A]
+set_property -dict { PACKAGE_PIN E19   IOSTANDARD LVCMOS33 } [get_ports pulse_out_B]
 #set_property -dict { PACKAGE_PIN U19   IOSTANDARD LVCMOS33 } [get_ports {led[2]}]
 #set_property -dict { PACKAGE_PIN V19   IOSTANDARD LVCMOS33 } [get_ports {led[3]}]
 #set_property -dict { PACKAGE_PIN W18   IOSTANDARD LVCMOS33 } [get_ports {led[4]}]
@@ -68,7 +68,7 @@ set_property -dict { PACKAGE_PIN U18   IOSTANDARD LVCMOS33 } [get_ports start_si
 #set_property -dict { PACKAGE_PIN T18   IOSTANDARD LVCMOS33 } [get_ports btnU]
 #set_property -dict { PACKAGE_PIN W19   IOSTANDARD LVCMOS33 } [get_ports btnL]
 #set_property -dict { PACKAGE_PIN T17   IOSTANDARD LVCMOS33 } [get_ports btnR]
-#set_property -dict { PACKAGE_PIN U17   IOSTANDARD LVCMOS33 } [get_ports btnD]
+set_property -dict { PACKAGE_PIN U17   IOSTANDARD LVCMOS33 } [get_ports reset]
 
 
 ##Pmod Header JA
