@@ -1,0 +1,2 @@
+#### Synthesis Challenge: Constraint Failure
+The initial synthesis attempt failed because the tool could not map the clock or I/O pins. This was a setup error where the simulation top module (`sequencer_tb`) was accidentally selected as the Synthesis top module instead of the design module (`top_pulse_sequencer`). The issue was resolved by correcting the top module setting, allowing the XDC file to correctly map to the hardware ports.
