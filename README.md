@@ -26,7 +26,18 @@ The core logic was verified using simulation (`sequencer_tb.sv`). The waveform c
 
 This waveform proves the FSM correctly manages the timers before synthesis begins.
 
+Following this, the design was synthesized in Vivado for the Artix-7 (xc7a35tcpg236-1). The design I/O was constrained using a customized XDC file provided by Digilent (`Basys-3-Master.xdc`). The mappings were verified in the Vivado I/O Ports view to ensure all signals were assigned to the correct pins and configured for the LVCMOS33 (3.3V).
+
+![Port mapping](assets/port_mapping_ver.png)
+
+The synthesized netlist was inspected visually to confirm correct translation of the SystemVerilog code to hardware primitives. The FSM structure consists of D Flip Flops and LUT's as follows:
+
+![Port mapping](assets/fsm_inst.png)
+
+Finally, through implementation in Vivado the synthesis result was placed, routed to ensure sub 10 $ns$ timing, and the bit file was generated.
+
+
 ## How to Run
 1.  Open the project in Xilinx Vivado.
 2.  Run the `sequencer_tb.sv` testbench for behavioral simulation.
-3.  Generate Bitstream and target the Basys 3 board.
+3.  Generate Bitstream or use the one provided, and target the Basys 3 board.
