@@ -36,8 +36,16 @@ The synthesized netlist was inspected visually to confirm correct translation of
 
 Finally, through implementation in Vivado the synthesis result was placed, routed to ensure sub 10 $ns$ timing, and the bit file was generated.
 
+While physically testing, it was not possible for a human eye to identify the led pulses down to the $\mu s$ level. Two extra timing options were added to the `top_pulse_sequencer.sv` file for extra verification:
+
+1. **1 Second Pulse and 0.5 Seond Delay** - For these timings it is possible to see the pulse and idle states in action.
+
+![Port mapping](assets/basys_3_gif.gif)
+
+2. **Very Short Pulse and Very Long Delay** - The FSM spends 99% of its time in the delay state, and so if working correctly both LED's should appear very dim. Otherwise, if the FSM is broken, LED A will be at full brightness.
 
 ## How to Run
 1.  Open the project in Xilinx Vivado.
 2.  Run the `sequencer_tb.sv` testbench for behavioral simulation.
-3.  Generate Bitstream or use the one provided, and target the Basys 3 board.
+3.  Synthesize, Implement and Generate Bitstream or use the one provided, and target the Basys 3 board.
+4. On the physical board, click U17 to reset and hold U18 to start.
